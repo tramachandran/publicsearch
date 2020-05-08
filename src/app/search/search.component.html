@@ -1,0 +1,27 @@
+<div class="form">
+   <div>
+        <label for="search">Search Text:</label>
+        <input type="text" id="search" name="search" [(ngModel)]="searchText">
+    </div>
+    <div>
+        <label for="options">Search Provider:</label>
+        <select type="text" id="provider" name="provider" [(ngModel)]="provider" (change)="providerChange()">
+            <option *ngFor="let option of options" [value]="option">{{option}}</option>
+        </select>
+    </div>
+    <div class="searchBtn">
+        <button [disabled]="!searchText" (click)="onSearch()">Search</button>
+    </div>
+</div>
+<div class="results" *ngIf="searchClicked">
+    <ng-container *ngIf="results.length > 0; else noResultTemp">
+        <h2>Search Results</h2>
+        <div *ngFor="let result of results">
+            <a *ngIf="result.linkRequired" target="_blank" [href]="result.url">{{result.title}}</a> | <span>{{result.author}}</span>
+        </div>
+    </ng-container>
+    <ng-template #noResultTemp>
+        <h4>No results Found ......</h4>
+    </ng-template>
+</div>
+

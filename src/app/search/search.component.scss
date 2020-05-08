@@ -1,0 +1,31 @@
+div.form {
+    display: flex;
+    height: 10vh;
+    > div {
+        margin: 1vw;
+    }
+    input, select {
+        margin-left: 2vw
+    }
+    > div.searchBtn {
+        button {
+            margin: 0;
+            background-color: blue;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            &:disabled {
+                background-color: gainsboro;
+                cursor: text;
+            }
+        }
+        
+    }
+}
+
+div.results {
+    h2 {
+        text-decoration: underline;
+    }
+}
